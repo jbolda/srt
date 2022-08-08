@@ -96,8 +96,9 @@ dependencies = [
 
 [[package]]
 name = "deepgram"
-version = "0.2.0-alpha.3"
-source = "git+https://www.github.com/deepgram-devs/deepgram-rust-sdk?branch=all-mods#b25cbce36e100e9a524a9afac26347a9560e99e8"
+version = "0.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "b7fcecaeb6cb0c9ee8bd4c1f0e67eba98994235a34c7c62d9906afb67c6226a7"
 dependencies = [
  "bytes",
  "futures",
