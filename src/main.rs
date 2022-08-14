@@ -2,7 +2,7 @@ mod srt;
 use crate::srt::{CreateSubtitles, Subtitles};
 use deepgram::{
     transcription::prerecorded::{
-        audio_source::BufferSource,
+        audio_source::AudioSource,
         options::{Language, Options},
     },
     Deepgram, DeepgramError,
@@ -23,10 +23,7 @@ async fn main() -> Result<(), DeepgramError> {
 
     let file = File::open(PATH_TO_FILE).await.unwrap();
 
-    let source = BufferSource {
-        buffer: file,
-        mimetype: Some("audio/mpeg3"),
-    };
+    let source = AudioSource::from_buffer_with_mime_type(file, "audio/mpeg3");
 
     let options = Options::builder()
         .punctuate(true)
